@@ -15,7 +15,6 @@ import { datesToDurationString } from "@/lib/helper";
 import { Badge } from "@/components/ui/badge";
 import ExecutionStatusIndicator from "./ExecutionStatusIndicator";
 import { WorkflowExecutionStatus } from "@/lib/types";
-import { Coins, CoinsIcon } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { useRouter } from "next/navigation";
 
@@ -44,7 +43,6 @@ function ExecutionsTable({
           <TableRow>
             <TableHead>Id</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead>Consumed</TableHead>
             <TableHead className="text-right text-sm text-muted-foreground">
               Started at
             </TableHead>
@@ -92,19 +90,6 @@ function ExecutionsTable({
                     </div>
                     <div className="text-muted-foreground text-xs mx-5">
                       {duration}
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="flex flex-col">
-                    <div className="flex gap-2 items-center">
-                      <CoinsIcon size={16} className="text-primary" />
-                      <span className="font-semibold capitalize">
-                        {execution.creditsConsumed}
-                      </span>
-                    </div>
-                    <div className="text-muted-foreground text-xs mx-5">
-                      Credits
                     </div>
                   </div>
                 </TableCell>

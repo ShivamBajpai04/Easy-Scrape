@@ -57,7 +57,6 @@ export const HoverEffect = ({
               <span className="text-xl group-hover:text-primary">
                 {item.title}
               </span>
-              <span className="font-thin">{item.credits} credits</span>
             </CardTitle>
             <CardDescription className="flex flex-col gap-2">
               <span className="text-3xl font-semibold group-hover:text-primary text-white">

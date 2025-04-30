@@ -224,6 +224,7 @@ export async function publishWorkflow({
     data: {
       definition: flowDefinition,
       status: WorkflowStatus.PUBLISHED,
+      executionPlan: JSON.stringify(result.executionPlan),
     },
   });
   revalidatePath(`/worflow/editor/${id}`);
