@@ -1,0 +1,43 @@
+/* Enhanced icon styling applied globally */
+svg[data-lucide] {
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Add a subtle hover effect for interactive icons */
+a svg[data-lucide],
+button svg[data-lucide],
+.interactive svg[data-lucide] {
+  opacity: 0.9;
+}
+
+a:hover svg[data-lucide],
+button:hover svg[data-lucide],
+.interactive:hover svg[data-lucide] {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Specific class for animated loading icons */
+svg[data-lucide].animate-spin,
+svg[data-lucide].loading-icon {
+  stroke-width: 1.5;
+}
+
+/* Accent colored icons */
+svg[data-lucide].accent-icon {
+  stroke: hsl(var(--accent));
+}
+
+svg[data-lucide].primary-icon {
+  stroke: hsl(var(--primary));
+}
+
+/* Smaller icons in text context */
+.text-icon svg[data-lucide] {
+  vertical-align: middle;
+  margin-bottom: 2px;
+}

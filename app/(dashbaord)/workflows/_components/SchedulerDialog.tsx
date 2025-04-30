@@ -105,7 +105,7 @@ function SchedulerDialog({
             All times are in UTC
           </p>
           <Input
-            placeholder="E.g. * * * * *"
+            placeholder="E.g. 0 0 * * * (Run at 00:00 UTC daily)"
             value={cron}
             onChange={(e) => setCron(e.target.value)}
           />
