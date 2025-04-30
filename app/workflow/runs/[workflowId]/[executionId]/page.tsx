@@ -17,7 +17,7 @@ function ExecutionViewerPage({
         subtitle={`Execution Id: ${params.executionId}`}
         hideButtons
       />
-      <section className="flex h-full overflow-auto">
+      <div className="flex h-full overflow-auto">
         <Suspense
           fallback={
             <div className="flex w-full items-center justify-center">
@@ -27,7 +27,7 @@ function ExecutionViewerPage({
         >
           <ExecutionViewerWrapper executionId={params.executionId} />
         </Suspense>
-      </section>
+      </div>
     </div>
   );
 }

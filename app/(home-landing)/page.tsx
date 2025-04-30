@@ -86,7 +86,7 @@ function SectionWrapper({
   secondaryTitle?: string;
 }) {
   return (
-    <section
+    <div
       className={cn(
         "flex flex-col items-center justify-center gap-4 py-10 box-border max-w-screen-xl mx-auto scroll-mt-[80px] p-5 md:p-10",
         className
@@ -98,6 +98,6 @@ function SectionWrapper({
         <span className="">{secondaryTitle}</span>
       </div>
       {children}
-    </section>
+    </div>
   );
 }
