@@ -7,6 +7,7 @@ import {
   WorkflowExecutionStatus,
   WorkflowExecutionTrigger,
   WorkflowStatus,
+  TaskType,
 } from "@/lib/types";
 import { executeWorkflow } from "@/lib/workflow/executeWorkflow";
 import { flowToExecutionPlan } from "@/lib/workflow/executionPlan";
@@ -83,7 +84,7 @@ export async function runWorkflow(form: {
               status: ExecutionPhaseStatus.CREATED,
               number: phase.phase,
               node: JSON.stringify(node),
-              name: TaskRegistry[node.data.type].label,
+              name: TaskRegistry[node.data.type as keyof typeof TaskRegistry].label,
             };
           })
         ),

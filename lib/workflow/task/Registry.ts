@@ -13,18 +13,17 @@ import { BuildJSONTask } from "./data/BuildJSON";
 import { ReadJSONTask } from "./data/ReadJSON";
 import { DeliverToWebhookTask } from "./webhook/DeliverToWebhook";
 
-export const TaskRegistry = {
+export const TaskRegistry: Record<TaskType, any> = {
   [TaskType.LAUNCH_BROWSER]: LaunchBrowserTask,
-  [TaskType.NAVIGATE]: NavigateTask,
+  [TaskType.NAVIGATE_URL]: NavigateTask,
   [TaskType.PAGE_TO_HTML]: PageToHTMLTask,
-  [TaskType.SELECT_ELEMENT]: SelectElementTask,
-  [TaskType.EXTRACT_TEXT]: ExtractTextTask,
+  [TaskType.EXTRACT_TEXT_FROM_ELEMENT]: ExtractTextTask,
   [TaskType.FILL_INPUT]: FillInputTask,
   [TaskType.CLICK_ELEMENT]: ClickElementTask,
-  [TaskType.WAIT]: WaitTask,
-  [TaskType.EXTRACT_BULK]: ExtractBulkTask,
-  [TaskType.EXTRACT_VIA_AI]: ExtractViaAITask,
-  [TaskType.BUILD_JSON]: BuildJSONTask,
-  [TaskType.READ_JSON]: ReadJSONTask,
-  [TaskType.DELIVER_TO_WEBHOOK]: DeliverToWebhookTask,
+  [TaskType.WAIT_FOR_ELEMENT]: WaitTask,
+  [TaskType.EXTRACT_DATA_WITH_AI]: ExtractViaAITask,
+  [TaskType.ADD_PROPERTY_TO_JSON]: BuildJSONTask,
+  [TaskType.READ_PROPERTY_FROM_JSON]: ReadJSONTask,
+  [TaskType.DELIVER_VIA_WEBHOOK]: DeliverToWebhookTask,
+  [TaskType.SCROLL_TO_ELEMENT]: SelectElementTask, // Assuming this is the closest match
 };

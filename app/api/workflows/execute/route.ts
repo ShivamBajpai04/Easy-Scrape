@@ -4,6 +4,7 @@ import {
   WorkflowExecutionPlan,
   WorkflowExecutionStatus,
   WorkflowExecutionTrigger,
+  TaskType,
 } from "@/lib/types";
 import { executeWorkflow } from "@/lib/workflow/executeWorkflow";
 import { TaskRegistry } from "@/lib/workflow/task/Registry";
@@ -63,7 +64,7 @@ export async function GET(request: Request) {
                 status: ExecutionPhaseStatus.CREATED,
                 number: phase.phase,
                 node: JSON.stringify(node),
-                name: TaskRegistry[node.data.type].label,
+                name: TaskRegistry[node.data.type as keyof typeof TaskRegistry].label,
               };
             })
           ),

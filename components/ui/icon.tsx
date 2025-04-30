@@ -4,8 +4,12 @@ import * as React from "react";
 import { LucideIcon, LucideProps } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export interface IconProps extends LucideProps {
+export interface IconProps {
   name: LucideIcon;
+  className?: string;
+  size?: number | string;
+  strokeWidth?: number | string;
+  [key: string]: any;
 }
 
 const Icon = React.forwardRef<SVGSVGElement, IconProps>(

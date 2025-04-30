@@ -105,14 +105,14 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
         return false;
       }
 
-      const sourceTask = TaskRegistry[sourceNode.data.type];
-      const targetTask = TaskRegistry[targetNode.data.type];
+      const sourceTask = TaskRegistry[sourceNode.data.type as keyof typeof TaskRegistry];
+      const targetTask = TaskRegistry[targetNode.data.type as keyof typeof TaskRegistry];
 
       const output = sourceTask.outputs.find(
-        (o) => o.name === connection.sourceHandle
+        (o: any) => o.name === connection.sourceHandle
       );
       const input = targetTask.inputs.find(
-        (i) => i.name === connection.targetHandle
+        (i: any) => i.name === connection.targetHandle
       );
 
       if (input?.type !== output?.type) {

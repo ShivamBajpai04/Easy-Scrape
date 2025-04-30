@@ -100,18 +100,24 @@ export async function getWorkflowExecutionsStats(period: Period) {
     },
   });
 
+  // Define an interface for the stats object
+  interface DailyStats {
+    success: number;
+    failed: number;
+  }
+
   const stats = eachDayOfInterval({
     start: dateRange.startDate,
     end: dateRange.endDate,
   })
     .map((date) => format(date, "yyyy-MM-dd"))
-    .reduce((acc, date) => {
+    .reduce<Record<string, DailyStats>>((acc, date) => {
       acc[date] = {
         success: 0,
         failed: 0,
       };
       return acc;
-    }, {} as any);
+    }, {});
 
   executions.forEach((execution) => {
     const date = format(execution.startedAt!, "yyyy-MM-dd");

@@ -16,7 +16,7 @@ function NodeHeader({
   taskType: TaskType;
   nodeId: string;
 }) {
-  const task = TaskRegistry[taskType];
+  const task = TaskRegistry[taskType as keyof typeof TaskRegistry];
 
   const { deleteElements, getNode, addNodes } = useReactFlow();
 

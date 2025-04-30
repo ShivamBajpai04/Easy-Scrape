@@ -13,19 +13,19 @@ const DEV_MODE = process?.env?.NEXT_PUBLIC_DEV_MODE === "true";
 
 const NodeComponent = memo((props: NodeProps) => {
   const nodeData = props.data as AppNodeData;
-  const task = TaskRegistry[nodeData.type];
+  const task = TaskRegistry[nodeData.type as keyof typeof TaskRegistry];
 
   return (
     <NodeCard nodeId={props.id} isSelected={!!props.selected}>
       {DEV_MODE && <Badge>DEV:{props.id}</Badge>}
       <NodeHeader taskType={nodeData.type} nodeId={props.id} />
       <NodeIO>
-        {task.inputs.map((input) => (
+        {task.inputs.map((input: any) => (
           <NodeInput input={input} key={input.name} nodeId={props.id} />
         ))}
       </NodeIO>
       <NodeIO>
-        {task.outputs.map((output) => (
+        {task.outputs.map((output: any) => (
           <NodeOutput output={output} key={output.name} />
         ))}
       </NodeIO>
